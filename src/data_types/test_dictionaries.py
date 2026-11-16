@@ -77,3 +77,36 @@ def test_dictionary():
     assert dictionary_for_string_keys['sape'] == 4139
     assert dictionary_for_string_keys['guido'] == 4127
     assert dictionary_for_string_keys['jack'] == 4098
+
+
+def test_dictionary_retrieving_entries():
+    """Retrieving dictionary entries safely"""
+
+    stock = {'apples': 10, 'bananas': 0}
+
+    # Accessing a missing key with square brackets raises a KeyError.
+    key_error_raised = False
+    try:
+        _ = stock['oranges']
+    except KeyError:
+        key_error_raised = True
+    assert key_error_raised
+
+    # The get() method returns None (or a given default) instead of raising an error.
+    assert stock.get('apples') == 10
+    assert stock.get('oranges') is None
+    assert stock.get('oranges', 0) == 0
+
+    # setdefault() returns the value if the key exists, otherwise it inserts the default.
+    assert stock.setdefault('apples', 99) == 10
+    assert stock.setdefault('oranges', 5) == 5
+    assert stock['oranges'] == 5
+
+    # keys(), values() and items() give views of the dictionary contents.
+    assert list(stock.keys()) == ['apples', 'bananas', 'oranges']
+    assert list(stock.values()) == [10, 0, 5]
+    assert list(stock.items()) == [('apples', 10), ('bananas', 0), ('oranges', 5)]
+
+    # items() is commonly used to loop over key/value pairs at the same time.
+    in_stock = [fruit for fruit, amount in stock.items() if amount > 0]
+    assert in_stock == ['apples', 'oranges']
