@@ -110,3 +110,31 @@ def test_dictionary_retrieving_entries():
     # items() is commonly used to loop over key/value pairs at the same time.
     in_stock = [fruit for fruit, amount in stock.items() if amount > 0]
     assert in_stock == ['apples', 'oranges']
+
+
+def test_dictionary_updating_and_removing():
+    """Updating and removing dictionary entries"""
+
+    student = {'name': 'Alice', 'grade': 'B'}
+
+    # update() merges another dictionary: existing keys are overwritten, new keys are added.
+    student.update({'grade': 'A', 'course': 'SOEN'})
+    assert student == {'name': 'Alice', 'grade': 'A', 'course': 'SOEN'}
+
+    # pop() removes a key and returns its value.
+    removed_course = student.pop('course')
+    assert removed_course == 'SOEN'
+    assert 'course' not in student
+
+    # pop() with a default does not raise an error when the key is missing.
+    assert student.pop('email', 'not provided') == 'not provided'
+
+    # popitem() removes and returns the last inserted key/value pair.
+    student['year'] = 2
+    assert student.popitem() == ('year', 2)
+    assert list(student) == ['name', 'grade']
+
+    # clear() removes every entry, leaving an empty dictionary.
+    student.clear()
+    assert student == {}
+    assert len(student) == 0
