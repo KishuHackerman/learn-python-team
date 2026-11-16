@@ -132,3 +132,18 @@ def test_function_parameters_and_return():
     # The first argument supplies hours and the second supplies minutes.
     assert total_minutes(2, 15) == 135
     assert total_minutes(0, 30) == 30
+
+
+def test_function_checks_input():
+    """Check input before trying to read its first character."""
+
+    def first_initial(name):
+        name = name.strip()
+        if not name:
+            return None
+        return name[0].upper()
+
+    # A blank name has no initial, so the function returns early.
+    assert first_initial('  maya  ') == 'M'
+    assert first_initial('') is None
+    assert first_initial('   ') is None
