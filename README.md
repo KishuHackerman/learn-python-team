@@ -1,5 +1,18 @@
 # Playground and Cheatsheet for Learning Python
 
+## Team - SCM Assignment (learn-python-team)
+
+This repository is maintained by our team for the Software Configuration Management
+with Git and GitHub assignment.
+
+| Role | GitHub | Responsibility |
+|------|--------|----------------|
+| Student A (maintainer) | [Serafin0](https://github.com/Serafin0) | Original repository, `src/data_types/test_lists.py` |
+| Student B | Kishu | `src/data_types/test_dictionaries.py` |
+| Student C | ericmapple | `src/control_flow/test_if.py` |
+| Student D | ayush | `src/functions/test_function_definition.py` |
+
+
 > 🇺🇦 UKRAINE [IS BEING ATTACKED](https://war.ukraine.ua/) BY RUSSIAN ARMY. CIVILIANS ARE GETTING KILLED. RESIDENTIAL AREAS ARE GETTING BOMBED.
 > - Help Ukraine via:
 >   - [Serhiy Prytula Charity Foundation](https://prytulafoundation.org/en/)
