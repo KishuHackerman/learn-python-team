@@ -363,7 +363,44 @@ def test_list_slicing():
     # Gets elements from the beginning of the list up to index 3 (exclusive)
     assert letters[:3] == ['a', 'b', 'c']
 
-    # Gets elements from index 1 up to (but not including) the last element
-    # Negative indexes count from the end: -1 is the last element, so this drops the first and last elements
+    # Negative indexes count from the end: -1 is the last element,
+    # so this drops the first and last elements
     assert letters[1:-1] == ['b', 'c', 'd', 'e']
 
+
+def test_list_sorting():
+    """List Sorting.
+
+    sorted() returns a NEW sorted list, while list.sort()
+    changes the original list in place and returns None.
+    """
+
+    numbers = [5, 2, 8, 1, 9, 3]
+
+    # sorted() returns a new list in ascending order
+    assert sorted(numbers) == [1, 2, 3, 5, 8, 9]
+
+    # The original list remains unchanged
+    assert numbers == [5, 2, 8, 1, 9, 3]
+
+    # reverse=True sorts from largest to smallest
+    assert sorted(numbers, reverse=True) == [9, 8, 5, 3, 2, 1]
+
+    # .sort() changes the original list itself
+    numbers.sort()
+    assert numbers == [1, 2, 3, 5, 8, 9]
+
+    words = ["elephant", "cat", "butterfly", "dog", "ant"]
+
+    # key=len sorts by word length instead of alphabetically
+    assert sorted(words, key=len) == ["cat", "dog", "ant", "elephant", "butterfly"]
+
+    # The original list remains unchanged
+    assert words == ["elephant", "cat", "butterfly", "dog", "ant"]
+
+    # .sort() changes the original list itself
+    words.sort(key=len)
+    assert words == ["cat", "dog", "ant", "elephant", "butterfly"]
+
+    # .sort() returns None, so don't assign its result
+    assert numbers.sort() is None
