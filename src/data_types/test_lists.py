@@ -336,3 +336,34 @@ def test_nested_list_comprehensions():
         (3, 7, 11),
         (4, 8, 12),
     ]
+
+
+def test_list_slicing():
+    """List Slicing.
+
+    Slicing allows you to access a portion of a list using
+    list[start:stop:step]. The start index is inclusive, the stop
+    index is exclusive, and step determines how many positions to skip.
+    """
+
+    letters = ['a', 'b', 'c', 'd', 'e', 'f']
+
+    # Gets elements from index 1 up to (but not including) index 4
+    assert letters[1:4] == ['b', 'c', 'd']
+
+    # Gets every second element, starting at index 0
+    assert letters[::2] == ['a', 'c', 'e']
+
+    # Uses a negative step to reverse the list
+    assert letters[::-1] == ['f', 'e', 'd', 'c', 'b', 'a']
+
+    # Gets elements from index 2 to the end of the list
+    assert letters[2:] == ['c', 'd', 'e', 'f']
+
+    # Gets elements from the beginning of the list up to index 3 (exclusive)
+    assert letters[:3] == ['a', 'b', 'c']
+
+    # Gets elements from index 1 up to (but not including) the last element
+    # Negative indexes count from the end: -1 is the last element, so this drops the first and last elements
+    assert letters[1:-1] == ['b', 'c', 'd', 'e']
+
