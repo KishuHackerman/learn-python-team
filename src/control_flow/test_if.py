@@ -26,3 +26,21 @@ def test_if_statement():
         conclusion = 'Number bigger than or equal to one'
 
     assert conclusion == 'Number bigger than or equal to one'
+
+
+def test_nested_if_statement():
+    """A second condition can be checked only after the first one passes."""
+
+    has_ticket = True
+    age = 16
+    admission = ''
+
+    if has_ticket:
+        if age < 18:
+            admission = 'Admit with a guardian'
+        else:
+            admission = 'Admit'
+    else:
+        admission = 'Ticket required'
+
+    assert admission == 'Admit with a guardian'
