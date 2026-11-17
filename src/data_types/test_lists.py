@@ -392,7 +392,8 @@ def test_list_sorting():
 
     words = ["elephant", "cat", "butterfly", "dog", "ant"]
 
-    # key=len sorts by word length instead of alphabetically
+    # key=len sorts by word length instead of alphabetically. The sort is stable, so
+    # words of equal length ("cat", "dog", "ant") keep their original order
     assert sorted(words, key=len) == ["cat", "dog", "ant", "elephant", "butterfly"]
 
     # The original list remains unchanged
