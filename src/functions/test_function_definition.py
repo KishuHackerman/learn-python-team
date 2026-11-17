@@ -121,3 +121,29 @@ def test_function_definition():
     greet_with_closure = compose_greet_func_with_closure('John')
 
     assert greet_with_closure() == 'Hello there, John!'
+
+
+def test_function_parameters_and_return():
+    """Pass two arguments to a function and check what it returns."""
+
+    def total_minutes(hours, minutes):
+        return hours * 60 + minutes
+
+    # The first argument supplies hours and the second supplies minutes.
+    assert total_minutes(2, 15) == 135
+    assert total_minutes(0, 30) == 30
+
+
+def test_function_checks_input():
+    """Check input before trying to read its first character."""
+
+    def first_initial(name):
+        name = name.strip()
+        if not name:
+            return None
+        return name[0].upper()
+
+    # A blank name has no initial, so the function returns early.
+    assert first_initial('  maya  ') == 'M'
+    assert first_initial('') is None
+    assert first_initial('   ') is None
