@@ -26,3 +26,39 @@ def test_if_statement():
         conclusion = 'Number bigger than or equal to one'
 
     assert conclusion == 'Number bigger than or equal to one'
+
+
+def test_nested_if_statement():
+    """A second condition can be checked only after the first one passes."""
+
+    has_ticket = True
+    age = 16
+    admission = ''
+
+    if has_ticket:
+        if age < 18:
+            admission = 'Admit with a guardian'
+        else:
+            admission = 'Admit'
+    else:
+        admission = 'Ticket required'
+
+    assert admission == 'Admit with a guardian'
+
+
+def test_multiple_elif_score_ranges():
+    """Check score ranges from highest to lowest to select one result."""
+
+    score = 75
+    grade = ''
+
+    if score >= 90:
+        grade = 'A'
+    elif score >= 75:
+        grade = 'B'
+    elif score >= 60:
+        grade = 'C'
+    else:
+        grade = 'F'
+
+    assert grade == 'B'
