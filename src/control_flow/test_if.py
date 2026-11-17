@@ -44,3 +44,21 @@ def test_nested_if_statement():
         admission = 'Ticket required'
 
     assert admission == 'Admit with a guardian'
+
+
+def test_multiple_elif_score_ranges():
+    """Check score ranges from highest to lowest to select one result."""
+
+    score = 75
+    grade = ''
+
+    if score >= 90:
+        grade = 'A'
+    elif score >= 75:
+        grade = 'B'
+    elif score >= 60:
+        grade = 'C'
+    else:
+        grade = 'F'
+
+    assert grade == 'B'
